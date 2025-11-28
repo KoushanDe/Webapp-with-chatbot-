@@ -64,17 +64,17 @@ export const TEAM: TeamMember[] = [
   {
     name: "Rahul S.",
     role: "Lead Stylist",
-    image: "https://picsum.photos/seed/stylist1/300/300"
+    image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=300&auto=format&fit=crop"
   },
   {
     name: "Priya M.",
     role: "Massage Specialist",
-    image: "https://picsum.photos/seed/stylist2/300/300"
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=300&auto=format&fit=crop"
   },
   {
     name: "Amit K.",
     role: "Junior Stylist",
-    image: "https://picsum.photos/seed/stylist3/300/300"
+    image: "https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?q=80&w=300&auto=format&fit=crop"
   }
 ];
 

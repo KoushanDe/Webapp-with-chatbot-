@@ -19,6 +19,7 @@ export const Hero: React.FC = () => {
           src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?q=80&w=2070&auto=format&fit=crop" 
           alt="Luxury Salon Interior" 
           className="w-full h-full object-cover animate-slow-zoom origin-center"
+          referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/30" />
       </div>
@@ -102,7 +103,12 @@ export const Gallery: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {images.map((src, idx) => (
             <div key={idx} className="relative overflow-hidden rounded-xl aspect-[3/4] group">
-              <img src={src} alt={`Gallery ${idx}`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              <img 
+                src={src} 
+                alt={`Gallery ${idx}`} 
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                referrerPolicy="no-referrer"
+              />
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <span className="text-white font-serif tracking-wider">ROXY</span>
               </div>
@@ -142,7 +148,12 @@ export const About: React.FC = () => {
           <div className="grid grid-cols-2 gap-4">
              {TEAM.slice(0, 2).map((member, idx) => (
                <div key={idx} className={`relative rounded-2xl overflow-hidden ${idx === 1 ? 'mt-8' : ''}`}>
-                 <img src={member.image} alt={member.name} className="w-full h-64 object-cover" />
+                 <img 
+                    src={member.image} 
+                    alt={member.name} 
+                    className="w-full h-64 object-cover" 
+                    referrerPolicy="no-referrer"
+                 />
                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
                    <p className="text-white font-bold">{member.name}</p>
                    <p className="text-salon-gold text-xs">{member.role}</p>
