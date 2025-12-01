@@ -1,6 +1,6 @@
 {
-  "name": "Roxy Salon Web App",
-  "description": "A modern, responsive web application for Roxy Salon featuring a floating chatbot with voice interaction tailored for N8N workflow integration.",
+  "name": "Dr. Smith's Family Dentistry",
+  "description": "Pain-free dentistry for the whole family. Specializing in Invisalign, Implants, and Emergency Care. Book your appointment today.",
   "requestFramePermissions": [
     "microphone"
   ]

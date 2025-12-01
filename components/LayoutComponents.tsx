@@ -1,6 +1,22 @@
 import React, { useState } from 'react';
-import { Menu, X, Instagram, Facebook, MapPin, Phone, Mail } from 'lucide-react';
-import { SALON_INFO } from '../constants';
+import { Menu, X, Facebook, MapPin, Phone, Mail, Linkedin } from 'lucide-react';
+import { CLINIC_INFO } from '../constants';
+
+interface NavLinkProps {
+  href: string;
+  children: React.ReactNode;
+  onNavigate: (e: React.MouseEvent<HTMLElement>, id: string) => void;
+}
+
+const NavLink = ({ href, children, onNavigate }: NavLinkProps) => (
+  <a 
+    href={`#${href}`}
+    onClick={(e) => onNavigate(e, href)}
+    className="text-gray-600 hover:text-dental-teal transition-colors duration-200 text-sm tracking-wide font-semibold cursor-pointer"
+  >
+    {children}
+  </a>
+);
 
 export const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -9,50 +25,39 @@ export const Header: React.FC = () => {
     e.preventDefault();
     const element = document.getElementById(id);
     if (element) {
-      // Close mobile menu if it's open
       setMobileMenuOpen(false);
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
-  const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
-    <a 
-      href={`#${href}`}
-      onClick={(e) => handleScroll(e, href)}
-      className="text-gray-300 hover:text-salon-gold transition-colors duration-200 text-sm tracking-wide uppercase font-medium cursor-pointer"
-    >
-      {children}
-    </a>
-  );
-
   return (
-    <header className="fixed w-full top-0 z-50 bg-salon-dark/95 backdrop-blur-sm border-b border-gray-800 shadow-lg">
+    <header className="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <div className="flex-shrink-0 flex items-center">
+          <div className="flex-shrink-0 flex items-center gap-2">
             <h1 
-              className="text-2xl md:text-3xl font-serif font-bold text-salon-gold tracking-tighter cursor-pointer" 
+              className="text-2xl md:text-2xl font-serif font-bold text-dental-teal tracking-tight cursor-pointer" 
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
-              ROXY<span className="text-white">SALON</span>
+              DR. SMITH'S <span className="text-gray-400 font-sans font-light text-lg">DENTISTRY</span>
             </h1>
           </div>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex space-x-8">
-            <NavLink href="services">Services</NavLink>
-            <NavLink href="gallery">Gallery</NavLink>
-            <NavLink href="about">About</NavLink>
-            <NavLink href="testimonials">Testimonials</NavLink>
-            <NavLink href="contact">Contact</NavLink>
+            <NavLink href="services" onNavigate={handleScroll}>Treatments</NavLink>
+            <NavLink href="about" onNavigate={handleScroll}>Our Team</NavLink>
+            <NavLink href="testimonials" onNavigate={handleScroll}>Patients</NavLink>
+            <NavLink href="faq" onNavigate={handleScroll}>FAQ</NavLink>
+            <NavLink href="contact" onNavigate={handleScroll}>Contact</NavLink>
           </nav>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-gray-300 hover:text-white p-2"
+              className="text-gray-500 hover:text-dental-teal p-2"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -63,16 +68,16 @@ export const Header: React.FC = () => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-zinc-900 border-t border-gray-800 absolute w-full left-0 z-50">
+        <div className="md:hidden bg-white border-t border-gray-100 absolute w-full left-0 z-50 shadow-xl">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
-            {['services', 'gallery', 'about', 'testimonials', 'contact'].map((item) => (
+            {['services', 'about', 'testimonials', 'faq', 'contact'].map((item) => (
               <a 
                 key={item}
                 href={`#${item}`} 
                 onClick={(e) => handleScroll(e, item)} 
-                className="block px-3 py-2 text-white hover:text-salon-gold w-full text-center capitalize cursor-pointer"
+                className="block px-3 py-4 text-gray-800 hover:text-dental-teal w-full text-center capitalize font-medium cursor-pointer border-b border-gray-50 last:border-none"
               >
-                {item}
+                {item === 'services' ? 'Treatments' : item}
               </a>
             ))}
           </div>
@@ -84,52 +89,52 @@ export const Header: React.FC = () => {
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-zinc-950 text-gray-400 py-12 border-t border-gray-900">
+    <footer className="bg-dental-dark text-gray-300 py-12 border-t border-teal-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
         
         {/* Brand */}
         <div>
-          <h2 className="text-2xl font-serif text-white mb-4">ROXY SALON</h2>
-          <p className="text-sm leading-relaxed mb-4">
-            A premium unisex grooming studio dedicated to style, hygiene, and relaxation.
+          <h2 className="text-2xl font-serif text-white mb-4">Dr. Smith's Dentistry</h2>
+          <p className="text-sm leading-relaxed mb-4 text-gray-400">
+            Providing compassionate, state-of-the-art dental care for the entire family. Your smile is our priority.
           </p>
           <div className="flex space-x-4">
-            <a href="#" className="hover:text-salon-gold transition-colors"><Instagram size={20} /></a>
-            <a href="#" className="hover:text-salon-gold transition-colors"><Facebook size={20} /></a>
+            <a href="#" className="hover:text-dental-teal transition-colors"><Facebook size={20} /></a>
+            <a href="#" className="hover:text-dental-teal transition-colors"><Linkedin size={20} /></a>
           </div>
         </div>
 
         {/* Contact */}
         <div>
-          <h3 className="text-white font-medium mb-4 uppercase tracking-wider">Contact Us</h3>
+          <h3 className="text-white font-medium mb-4 uppercase tracking-wider text-sm">Contact Us</h3>
           <ul className="space-y-3 text-sm">
             <li className="flex items-start gap-3">
-              <MapPin className="text-salon-gold shrink-0" size={18} />
-              <span>{SALON_INFO.address}</span>
+              <MapPin className="text-dental-teal shrink-0" size={18} />
+              <span>{CLINIC_INFO.address}</span>
             </li>
             <li className="flex items-center gap-3">
-              <Phone className="text-salon-gold shrink-0" size={18} />
-              <a href={`tel:${SALON_INFO.phone}`} className="hover:text-white">{SALON_INFO.phone}</a>
+              <Phone className="text-dental-teal shrink-0" size={18} />
+              <a href={`tel:${CLINIC_INFO.phone}`} className="hover:text-white">{CLINIC_INFO.phone}</a>
             </li>
             <li className="flex items-center gap-3">
-              <Mail className="text-salon-gold shrink-0" size={18} />
-              <a href={`mailto:${SALON_INFO.email}`} className="hover:text-white">{SALON_INFO.email}</a>
+              <Mail className="text-dental-teal shrink-0" size={18} />
+              <a href={`mailto:${CLINIC_INFO.email}`} className="hover:text-white">{CLINIC_INFO.email}</a>
             </li>
           </ul>
         </div>
 
         {/* Hours */}
         <div>
-          <h3 className="text-white font-medium mb-4 uppercase tracking-wider">Opening Hours</h3>
-          <p className="text-sm mb-2">Monday - Sunday</p>
-          <p className="text-white font-serif text-lg">{SALON_INFO.hours}</p>
-          <p className="text-xs mt-4 text-gray-500">
-            Walk-ins welcome based on availability.
+          <h3 className="text-white font-medium mb-4 uppercase tracking-wider text-sm">Office Hours</h3>
+          <p className="text-sm mb-2">Monday - Saturday</p>
+          <p className="text-white font-serif text-lg">{CLINIC_INFO.hours}</p>
+          <p className="text-xs mt-4 text-teal-500">
+            Emergency cases seen same day.
           </p>
         </div>
       </div>
-      <div className="mt-12 pt-8 border-t border-gray-900 text-center text-xs text-gray-600">
-        &copy; {new Date().getFullYear()} Roxy Salon. All rights reserved.
+      <div className="mt-12 pt-8 border-t border-teal-900 text-center text-xs text-gray-500">
+        &copy; {new Date().getFullYear()} Dr. Smith's Family & Cosmetic Dentistry. All rights reserved.
       </div>
     </footer>
   );

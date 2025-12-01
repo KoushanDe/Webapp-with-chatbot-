@@ -1,6 +1,6 @@
 import { WebhookPayload } from '../types';
 
-const N8N_WEBHOOK_URL = 'https://75a3b2458836.ngrok-free.app/webhook/ddf0f354-83dc-43c6-ab6c-620d0284b7e9';
+const N8N_WEBHOOK_URL = 'https://3a50f30c9a6d.ngrok-free.app/webhook/ddf0f354-83dc-43c6-ab6c-620d0284b7e9';
 
 export const generateSessionId = (): string => {
   return 'sess_' + Math.random().toString(36).substr(2, 9) + Date.now().toString(36);

@@ -1,119 +1,122 @@
 import { Service, TeamMember, Testimonial } from './types';
 
-export const SALON_INFO = {
-  name: "Roxy Salon",
-  phone: "+91-8910453538",
-  email: "koushanriki007@gmail.com",
-  address: "1st Floor, No.780, 16th Main Rd, BTM 2nd Stage, Bengaluru, Karnataka 560076",
-  googleMapsUrl: "https://maps.google.com/?q=Roxy+Salon+BTM+Layout",
-  hours: "10:00 AM – 8:00 PM (Mon-Sun)",
+export const CLINIC_INFO = {
+  name: "Dr. Smith’s Family & Cosmetic Dentistry",
+  phone: "+971-4-123-4567", // Placeholder UAE number as none provided in doc
+  email: "care@drsmithdental.com",
+  address: "The Citadel - Tower, Shop# 3, Ground floor, Business Bay, Dubai, UAE",
+  googleMapsUrl: "https://maps.google.com/?q=The+Citadel+Tower+Business+Bay+Dubai",
+  hours: "09:00 AM – 6:00 PM (Mon-Sat)",
 };
 
 export const SERVICES: Service[] = [
   {
-    id: 'h1',
-    name: "Haircut & Styling",
-    price: "₹499",
+    id: 's1',
+    name: "New Patient Special",
+    price: "$199",
+    duration: "60 mins",
+    description: "Full mouth X-rays, gum health check, professional cleaning, and doctor consultation.",
+    category: 'General'
+  },
+  {
+    id: 'e1',
+    name: "Emergency Exam",
+    price: "$99",
     duration: "30 mins",
-    description: "Precision cut tailored to your style with basic styling.",
-    category: 'Hair'
+    description: "Focused X-ray and diagnosis for pain or broken teeth. Fee waived if treatment done same-day.",
+    category: 'Emergency'
   },
   {
-    id: 'b1',
-    name: "Beard Grooming",
-    price: "₹299",
-    duration: "20-30 mins",
-    description: "Detailed trim, shape, hot towel, and beard oil.",
-    category: 'Beard'
+    id: 'c1',
+    name: "Invisalign Clear Aligners",
+    price: "From $3,500",
+    duration: "30 mins",
+    description: "Teeth straightening without metal braces. Includes 3D scan. 0% financing available.",
+    category: 'Cosmetic'
   },
   {
-    id: 'r1',
-    name: "Relaxing Head Massage",
-    price: "₹399",
-    duration: "20 mins",
-    description: "Therapeutic scalp massage with aromatic oils.",
-    category: 'Relaxation'
+    id: 'w1',
+    name: "Zoom Teeth Whitening",
+    price: "$350 - $600",
+    duration: "30 mins",
+    description: "Professional in-office whitening (1 hour) or custom take-home kits.",
+    category: 'Cosmetic'
   },
   {
-    id: 'h2',
-    name: "Hair Wash & Condition",
-    price: "₹149",
-    duration: "15 mins",
-    description: "Shampoo and conditioner with scalp cleanse.",
-    category: 'Hair'
+    id: 'v1',
+    name: "Porcelain Veneers",
+    price: "~$1,200/tooth",
+    duration: "30 mins",
+    description: "Custom-made shells for a complete 'Hollywood Smile' transformation.",
+    category: 'Cosmetic'
   },
   {
-    id: 'b2',
-    name: "Beard Styling",
-    price: "On Request",
-    duration: "Var",
-    description: "Precise shaping for formal or casual looks.",
-    category: 'Beard'
-  },
-  {
-    id: 'a1',
-    name: "Deep Conditioning",
-    price: "₹199",
-    duration: "Add-on",
-    description: "Intense moisture treatment for healthy hair.",
-    category: 'Add-On'
+    id: 'i1',
+    name: "Dental Implants",
+    price: "~$3,000+",
+    duration: "30 mins",
+    description: "Permanent, natural-looking replacement for missing teeth.",
+    category: 'General'
   }
 ];
 
 export const TEAM: TeamMember[] = [
   {
-    name: "Rahul S.",
-    role: "Lead Stylist",
-    image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=300&auto=format&fit=crop"
+    name: "Dr. Smith (DDS)",
+    role: "Lead Dentist",
+    // Professional male dentist
+    image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=400&auto=format&fit=crop"
   },
   {
-    name: "Priya M.",
-    role: "Massage Specialist",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=300&auto=format&fit=crop"
+    name: "Sarah",
+    role: "Lead Hygienist",
+    // Professional female hygienist
+    image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=400&auto=format&fit=crop"
   },
   {
-    name: "Amit K.",
-    role: "Junior Stylist",
-    image: "https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?q=80&w=300&auto=format&fit=crop"
+    name: "Reception Team",
+    role: "Front Desk & Billing",
+    // Friendly reception
+    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=400&auto=format&fit=crop"
   }
 ];
 
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: 1,
-    name: "Arjun Das",
-    text: "Best haircut I've had in BTM. The head massage is a must-try!",
+    name: "Ahmed Al-Fayed",
+    text: "The 'No-Wait' policy is real. I walked in and was in the chair within 5 minutes. Best dental experience in Dubai.",
     rating: 5
   },
   {
     id: 2,
-    name: "Sarah Jenkins",
-    text: "Very hygienic and professional. Love the unisex vibe.",
+    name: "Jessica Miller",
+    text: "I was terrified of the dentist, but the sedation and Netflix on the ceiling made it a breeze. Dr. Smith is a magician.",
     rating: 5
   },
   {
     id: 3,
-    name: "Michael T.",
-    text: "Great beard trim. The staff really listens to what you want.",
-    rating: 4
+    name: "Rahul Gupta",
+    text: "Got my Invisalign here with the payment plan. The 3D scan technology is incredible.",
+    rating: 5
   }
 ];
 
 export const FAQS = [
   {
-    q: "Do you accept walk-ins?",
-    a: "Yes, walk-ins are welcome based on availability."
+    q: "Do you accept insurance?",
+    a: "Yes, we accept most major PPO insurance plans and handle direct billing where possible."
   },
   {
-    q: "Are your products safe?",
-    a: "Yes, we use dermatologically tested, salon-grade products."
+    q: "Does the treatment hurt?",
+    a: "Dr. Smith specializes in 'Pain-Free Dentistry'. We offer numbing gel and sedation (laughing gas) for nervous patients."
   },
   {
-    q: "Do you cut women's hair?",
-    a: "Absolutely! We are a unisex salon."
+    q: "Can I get a same-day appointment?",
+    a: "For emergencies (pain/bleeding), yes! We prioritize pain relief. For routine cleaning, we usually have next-day availability."
   },
   {
-    q: "What languages do you speak?",
-    a: "English, Hindi, Bengali, and Thai."
+    q: "Is there parking available?",
+    a: "Yes, free private parking is available behind the building."
   }
 ];

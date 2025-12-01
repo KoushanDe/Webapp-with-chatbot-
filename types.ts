@@ -4,7 +4,7 @@ export interface Service {
   price: string;
   duration: string;
   description: string;
-  category: 'Hair' | 'Beard' | 'Relaxation' | 'Add-On';
+  category: 'General' | 'Cosmetic' | 'Emergency' | 'Preventative';
 }
 
 export interface Testimonial {
@@ -33,6 +33,20 @@ export interface WebhookPayload {
 }
 
 export interface WebhookResponse {
-  response: string; // Adjusted based on expected N8N output
-  // Add other fields if your N8N workflow returns structured data
+  response: string; 
+}
+
+export interface BookingFormData {
+  name: string;
+  phone: string;
+  email: string;
+  date: string;
+  time: string;
+  service: string;
+  notes: string;
+}
+
+export interface QuickReply {
+    label: string;
+    prompt: string;
 }
